@@ -1,7 +1,9 @@
-MP Blog v2
-This is an updated version of the MP Dev blog, which uses a modern tech stack:
+# MP Blog v2
 
-Next.js (v13)
-Typescript
-TailwindCSS
-Sanity.io (CMS)
+This is an updated version of the MP Dev blog, which uses modern tech stack:
+
+- Next.js (currently v13)
+- Typescript
+- TailwindCSS
+- Sanity.io (CMS)
+
