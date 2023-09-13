@@ -5,9 +5,9 @@ import PreviewPost from "@/components/PreviewPost";
 import { FC } from "react";
 import { Metadata } from "next";
 import { createMetadataFromPost } from "@/utils/functions";
-import { sanityFetch, token } from "../../../sanity/lib/sanityFetch";
-import { postPathsQuery, postQuery } from "../../../sanity/lib/queries";
-import { client } from "../../../sanity/lib/client";
+import { client } from "../../../../sanity/lib/client";
+import { postPathsQuery, postQuery } from "../../../../sanity/lib/queries";
+import { sanityFetch, token } from "../../../../sanity/lib/sanityFetch";
 
 type PostPageProps = {
   params: {

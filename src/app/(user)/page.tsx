@@ -1,9 +1,9 @@
-import { sanityFetch, token } from "../../sanity/lib/sanityFetch";
-import { postsQuery } from "../../sanity/lib/queries";
 import Posts from "@/components/Posts";
 import { draftMode } from "next/headers";
 import PreviewProvider from "@/components/PreviewProvider";
 import PreviewPosts from "@/components/PreviewPosts";
+import { sanityFetch, token } from "../../../sanity/lib/sanityFetch";
+import { postsQuery } from "../../../sanity/lib/queries";
 
 export default async function Home() {
   const posts = await sanityFetch<Post[]>({ query: postsQuery });

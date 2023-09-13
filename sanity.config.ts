@@ -11,7 +11,7 @@ import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 import { defaultDocumentNode } from "./sanity/desk/defaultDocumentNode";
 import { codeInput } from "@sanity/code-input";
-import StudioNavbar from "@/app/_components/studio/StudioNavbar";
+import StudioNavbar from "@/components/studio/StudioNavbar";
 import theme from "@/utils/theme";
 
 export default defineConfig({

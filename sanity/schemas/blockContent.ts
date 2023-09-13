@@ -1,7 +1,7 @@
-import BlockCode from "@/app/_components/studio/BlockCode";
-import Divider from "@/app/_components/studio/Divider";
-import InlineCode from "@/app/_components/studio/InlineCode";
-import { defineType, defineArrayMember, defineField } from "sanity";
+import BlockCode from "@/components/studio/BlockCode";
+import Divider from "@/components/studio/Divider";
+import InlineCode from "@/components/studio/InlineCode";
+import { defineType, defineArrayMember } from "sanity";
 
 /**
  * This is the schema type for block content used in the post document type
