@@ -1,7 +1,7 @@
-import Post from "@/app/_components/Post";
+import Post from "@/components/Post";
 import { draftMode } from "next/headers";
-import PreviewProvider from "../_components/PreviewProvider";
-import PreviewPost from "../_components/PreviewPost";
+import PreviewProvider from "@/components/PreviewProvider";
+import PreviewPost from "@/components/PreviewPost";
 import { FC } from "react";
 import { Metadata } from "next";
 import { createMetadataFromPost } from "@/utils/functions";

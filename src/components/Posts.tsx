@@ -15,9 +15,9 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
             <Link
               key={post._id}
               href={post.slug.current}
-              className="cursor-pointer"
+              className="cursor-pointer h-[400px]"
             >
-              <div className="relative w-full h-56">
+              <div className="relative w-full h-full">
                 <Image
                   className="object-cover object-center"
                   src={urlFor(post.mainImage).url()}

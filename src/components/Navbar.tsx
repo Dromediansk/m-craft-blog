@@ -45,9 +45,6 @@ const Navbar = () => {
 
       {/* Desktop version */}
       <div className="hidden md:flex items-center text-main gap-14 font-medium hover:opacity-80">
-        <Link href="/contact">
-          <span>Contact</span>
-        </Link>
         <div>
           <Link href="https://miroslavpillar.eu" target="_blank">
             Go to miroslavpillar.eu
