@@ -12,22 +12,19 @@ type PostProps = {
 
 const Post: FC<PostProps> = ({ post }) => {
   return (
-    <>
-      <article className="mx-auto prose prose-lg">
-        <SlugTitleSection
-          mainImage={post.mainImage}
-          createdAt={post._createdAt}
-          title={post.title}
-          description={post.description}
-          author={post.author}
-          categories={post.categories}
-        />
-        <section className="p-5">
-          <PortableText value={post.body} components={RichTextComponents} />
-        </section>
-      </article>
-      <Footer />
-    </>
+    <article className="mx-auto prose prose-lg">
+      <SlugTitleSection
+        mainImage={post.mainImage}
+        createdAt={post._createdAt}
+        title={post.title}
+        description={post.description}
+        author={post.author}
+        categories={post.categories}
+      />
+      <section className="p-5">
+        <PortableText value={post.body} components={RichTextComponents} />
+      </section>
+    </article>
   );
 };
 

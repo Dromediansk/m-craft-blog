@@ -8,42 +8,39 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
 
   return (
     <>
-      <main className="container mx-auto grid grid-cols-1 divide-y divide-blue-100">
-        <h1 className="text-2xl p-4 font-bold">{title}</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 gap-y-16 min-h-[80vh]">
-          {posts.map((post) => (
-            <Link
-              key={post._id}
-              href={post.slug.current}
-              className="cursor-pointer h-[400px]"
-            >
-              <div className="relative w-full h-full">
-                <Image
-                  className="object-cover object-center"
-                  src={urlFor(post.mainImage).url()}
-                  alt={post.author.name}
-                  fill
-                  priority
-                  sizes="100%"
-                />
-                <div className="absolute bottom-0 w-full bg-opacity-40 bg-black backdrop-blur-lg drop-shadow-lg text-white p-5 flex justify-between">
-                  <div>
-                    <h3 className="font-bold text-lg">{post.title}</h3>
-                    <span>
-                      {new Date(post._createdAt).toLocaleDateString("en-US", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </span>
-                  </div>
+      <h1 className="text-2xl p-4 font-bold">{title}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 gap-y-16 min-h-[80vh]">
+        {posts.map((post) => (
+          <Link
+            key={post._id}
+            href={post.slug.current}
+            className="cursor-pointer h-[400px]"
+          >
+            <div className="relative w-full h-full">
+              <Image
+                className="object-cover object-center"
+                src={urlFor(post.mainImage).url()}
+                alt={post.author.name}
+                fill
+                priority
+                sizes="100%"
+              />
+              <div className="absolute bottom-0 w-full bg-opacity-40 bg-black backdrop-blur-lg drop-shadow-lg text-white p-5 flex justify-between">
+                <div>
+                  <h3 className="font-bold text-lg">{post.title}</h3>
+                  <span>
+                    {new Date(post._createdAt).toLocaleDateString("en-US", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </span>
                 </div>
               </div>
-            </Link>
-          ))}
-        </div>
-      </main>
-      <Footer />
+            </div>
+          </Link>
+        ))}
+      </div>
     </>
   );
 }
