@@ -1,4 +1,4 @@
-# MP Blog v2
+# M Craft Blog 
 
 This is an updated version of the MP Dev blog, which uses modern tech stack:
 
