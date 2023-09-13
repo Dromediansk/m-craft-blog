@@ -1,4 +1,3 @@
-import "@/app/globals.css";
 import { sanityFetch, token } from "../../sanity/lib/sanityFetch";
 import { postsQuery } from "../../sanity/lib/queries";
 import Posts from "./_components/Posts";
