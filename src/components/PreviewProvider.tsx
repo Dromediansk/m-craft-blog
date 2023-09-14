@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { FC, ReactNode } from "react";
 import { suspend } from "suspend-react";
 
 const LiveQueryProvider = dynamic(() => import("next-sanity/preview"));
@@ -8,13 +9,12 @@ const LiveQueryProvider = dynamic(() => import("next-sanity/preview"));
 // suspend-react cache is global, so we use a unique key to avoid collisions
 const UniqueKey = Symbol("../../../sanity/lib/client");
 
-export default function PreviewProvider({
-  children,
-  token,
-}: {
-  children: React.ReactNode;
+type PreviewProviderProps = {
+  children: ReactNode;
   token: string;
-}) {
+};
+
+const PreviewProvider: FC<PreviewProviderProps> = ({ children, token }) => {
   const { client } = suspend(
     () => import("../../sanity/lib/client"),
     [UniqueKey]
@@ -32,4 +32,6 @@ export default function PreviewProvider({
       {children}
     </LiveQueryProvider>
   );
-}
+};
+
+export default PreviewProvider;

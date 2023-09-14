@@ -1,8 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/utils/functions";
+import { FC } from "react";
 
-export default function Posts({ posts = [] }: { posts: Post[] }) {
+type PostsProps = {
+  posts: Post[];
+};
+
+const Posts: FC<PostsProps> = ({ posts = [] }) => {
   const title = posts.length === 1 ? `1 Post` : `${posts.length} Posts`;
 
   return (
@@ -43,4 +48,6 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
       </div>
     </div>
   );
-}
+};
+
+export default Posts;

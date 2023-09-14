@@ -18,9 +18,9 @@ type PostPageProps = {
 // Prepare Next.js to know which routes already exist
 export async function generateStaticParams() {
   // Important, use the plain Sanity Client here
-  const posts = await client.fetch(postPathsQuery);
+  const postPaths = await client.fetch(postPathsQuery);
 
-  return posts;
+  return postPaths;
 }
 
 export const generateMetadata = async ({
