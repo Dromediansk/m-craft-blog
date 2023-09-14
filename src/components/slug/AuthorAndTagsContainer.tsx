@@ -27,11 +27,13 @@ const AuthorAndTagsContainer: FC<AuthorAndTagsContainerProps> = ({
           <h3 className="text-lg font-bold text-gray-600">{author.name}</h3>
         </div>
       </div>
-      <div className="flex items-center space-x-2 my-2">
-        {categories.map((category) => (
-          <Category key={category._id} category={category} />
-        ))}
-      </div>
+      {categories && (
+        <div className="flex items-center space-x-2 my-2">
+          {categories.map((category) => (
+            <Category key={category._id} category={category} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

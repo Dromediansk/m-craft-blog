@@ -7,3 +7,17 @@
     @apply bg-white;
   }
 }
+
+@layer components {
+  .hr {
+    display: block;
+    border: none;
+    height: 1px;
+    background: radial-gradient(
+      circle,
+      rgb(5, 41, 94) 0%,
+      rgb(13, 110, 253) 35%,
+      rgb(217, 232, 255) 100%
+    );
+  }
+}
