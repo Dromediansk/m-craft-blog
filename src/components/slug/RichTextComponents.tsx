@@ -50,7 +50,7 @@ const RichTextComponents: PortableTextComponents = {
       value,
     }: RichComponentCodeSnippetProps) => {
       return (
-        <div className="my-5 pb-5">
+        <div className="my-5">
           <span className="text-gray-500 italic">{value.filename}</span>
           <SyntaxHighlighter
             showLineNumbers
@@ -66,7 +66,7 @@ const RichTextComponents: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="ml-8 py-5 list-disc space-y-5">{children}</ul>
+      <ul className="py-2 list-disc my-0">{children}</ul>
     ),
     number: ({ children }) => (
       <ol className="mt-lg list-decimal">{children}</ol>
@@ -74,14 +74,14 @@ const RichTextComponents: PortableTextComponents = {
   },
   listItem: {
     bullet: ({ children }) => (
-      <li>
-        <p>{children}</p>
+      <li className="p-0 my-4">
+        <p className="my-0">{children}</p>
       </li>
     ),
   },
   block: {
     blockquote: ({ children }) => (
-      <blockquote className="border-l-main border-l-4 italic tracking-wide text-gray-600 pl-5 py-5 my-5">
+      <blockquote className="border-l-main border-l-4 italic tracking-wide text-gray-600 py-2 mx-10 my-14">
         {children}
       </blockquote>
     ),
@@ -103,7 +103,7 @@ const RichTextComponents: PortableTextComponents = {
         <Link
           href={value.href}
           rel={rel}
-          className="underline decoration-main hover:decoration-black"
+          className="underline decoration-secondary hover:decoration-black"
         >
           {children}
         </Link>

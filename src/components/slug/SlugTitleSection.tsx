@@ -5,7 +5,7 @@ import AuthorAndTagsContainer from "./AuthorAndTagsContainer";
 
 type SlugTitleSectionProps = {
   mainImage: Post["mainImage"];
-  createdAt: Post["_createdAt"];
+  publishedAt: Post["publishedAt"];
   title: Post["title"];
   description: Post["description"];
   author: Post["author"];
@@ -14,7 +14,7 @@ type SlugTitleSectionProps = {
 
 const SlugTitleSection: FC<SlugTitleSectionProps> = ({
   mainImage,
-  createdAt,
+  publishedAt,
   title,
   description,
   author,
@@ -26,7 +26,7 @@ const SlugTitleSection: FC<SlugTitleSectionProps> = ({
         <div>
           <h1 className="text-4xl font-extrabold text-main">{title}</h1>
           <span className="text-md italic">
-            {new Date(createdAt).toLocaleDateString("en-US", {
+            {new Date(publishedAt).toLocaleDateString("en-US", {
               day: "numeric",
               month: "long",
               year: "numeric",
@@ -34,11 +34,11 @@ const SlugTitleSection: FC<SlugTitleSectionProps> = ({
           </span>
         </div>
       </div>
-      <div className="py-4">
-        <AuthorAndTagsContainer author={author} categories={categories} />
-      </div>
+      <AuthorAndTagsContainer author={author} categories={categories} />
 
-      <p className="pt-2 pb-4">{description}</p>
+      <p className="py-2 my-0">
+        <i>{description}</i>
+      </p>
 
       <div className="p-10 relative min-h-[25vh]">
         <Image

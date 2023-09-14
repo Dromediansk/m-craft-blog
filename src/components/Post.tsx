@@ -15,7 +15,7 @@ const Post: FC<PostProps> = ({ post }) => {
     <article className="mx-auto w-full prose prose-lg p-2">
       <SlugTitleSection
         mainImage={post.mainImage}
-        createdAt={post._createdAt}
+        publishedAt={post.publishedAt}
         title={post.title}
         description={post.description}
         author={post.author}

@@ -13,7 +13,7 @@ const AuthorAndTagsContainer: FC<AuthorAndTagsContainerProps> = ({
   author,
 }) => {
   return (
-    <div className="flex justify-between flex-col sm:flex-row gap-2">
+    <div className="flex justify-between items-center flex-col sm:flex-row gap-2">
       <div className="flex items-center space-x-4">
         <Image
           className="rounded-full border border-main"
@@ -24,11 +24,13 @@ const AuthorAndTagsContainer: FC<AuthorAndTagsContainerProps> = ({
         />
 
         <div>
-          <h3 className="text-lg font-bold text-gray-600">{author.name}</h3>
+          <h3 className="m-auto text-lg font-bold text-gray-600">
+            {author.name}
+          </h3>
         </div>
       </div>
       {categories && (
-        <div className="flex items-center space-x-2 my-2">
+        <div className="flex items-center space-x-2 my-auto">
           {categories.map((category) => (
             <Category key={category._id} category={category} />
           ))}

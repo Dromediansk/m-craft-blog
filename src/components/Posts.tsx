@@ -34,7 +34,7 @@ const Posts: FC<PostsProps> = ({ posts = [] }) => {
                 <div>
                   <h3 className="font-bold text-lg">{post.title}</h3>
                   <span>
-                    {new Date(post._createdAt).toLocaleDateString("en-US", {
+                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
