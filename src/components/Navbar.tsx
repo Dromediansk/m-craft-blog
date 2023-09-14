@@ -11,7 +11,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollYPos = window.pageYOffset;
+      const currentScrollYPos = window.scrollY;
       const isScrollingUp = currentScrollYPos < scrollYPosition;
 
       setIsVisible(isScrollingUp || currentScrollYPos === 0);
@@ -33,13 +33,7 @@ const Navbar = () => {
     >
       <div className="flex items-center space-x-2">
         <Link href="/">
-          <Image
-            width={100}
-            height={100}
-            src="/M_logo.svg"
-            alt="logo"
-            priority
-          />
+          <Image width={100} height={100} src="/M_logo.svg" alt="logo" />
         </Link>
       </div>
 

@@ -46,7 +46,8 @@ const SlugTitleSection: FC<SlugTitleSectionProps> = ({
           src={urlFor(mainImage).url()}
           alt={title}
           fill
-          priority
+          placeholder="blur"
+          blurDataURL={urlFor(mainImage).url()}
           sizes="100%"
         />
       </div>

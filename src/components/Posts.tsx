@@ -21,7 +21,8 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
                 src={urlFor(post.mainImage).url()}
                 alt={post.author.name}
                 fill
-                priority
+                placeholder="blur"
+                blurDataURL={urlFor(post.mainImage).url()}
                 sizes="100%"
               />
               <div className="absolute bottom-0 w-full bg-opacity-40 bg-black backdrop-blur-lg drop-shadow-lg text-white p-5 flex justify-between">
