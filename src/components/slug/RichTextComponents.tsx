@@ -86,9 +86,11 @@ const RichTextComponents: PortableTextComponents = {
       </blockquote>
     ),
     blockCode: ({ children }) => (
-      <code className="bg-gray-200 text-gray-600 px-5 leading-10 block">
-        {children}
-      </code>
+      <span className="prose-code:before:content-none prose-code:after:content-none">
+        <code className="bg-gray-200 text-gray-600 px-2 leading-10 block">
+          {children}
+        </code>
+      </span>
     ),
   },
   marks: {
@@ -108,7 +110,9 @@ const RichTextComponents: PortableTextComponents = {
       );
     },
     code: ({ children }) => (
-      <code className="bg-gray-200 text-gray-600 px-2">{children}</code>
+      <span className="bg-gray-200 px-2 prose-code:before:content-none prose-code:after:content-none">
+        <code className="text-gray-600">{children}</code>
+      </span>
     ),
   },
 };
