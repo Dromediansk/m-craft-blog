@@ -1,9 +1,16 @@
 # M Craft Blog 
 
-This is an updated version of the MP Dev blog, which uses modern tech stack:
+A blogging website about software development, mobile development and latest tech trends.
+
+## Tech stack
 
 - Next.js (currently v13)
 - Typescript
 - TailwindCSS
 - Sanity.io (CMS)
 
+## Features
+
+- Preview mode for modifying articles
+- Draft mode for articles that are not ready to be published
+- Metadata implementation for better SEO
