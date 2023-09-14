@@ -41,15 +41,15 @@ const Navbar = () => {
       <div className="hidden md:flex items-center text-main gap-14 font-medium hover:opacity-80">
         <div>
           <Link href="https://miroslavpillar.eu" target="_blank">
-            Go to miroslavpillar.eu
+            Visit Portfolio
           </Link>
         </div>
       </div>
 
       {/* Mobile version */}
-      <div className="block md:hidden p-1 rounded border border-transparent text-main hover:cursor-pointer hover:bg-white hover:border hover:border-main">
+      {/* <div className="block md:hidden p-1 rounded border border-transparent text-main hover:cursor-pointer hover:bg-white hover:border hover:border-main">
         <RxHamburgerMenu size={30} />
-      </div>
+      </div> */}
     </nav>
   );
 };
