@@ -12,7 +12,7 @@ type PostProps = {
 
 const Post: FC<PostProps> = ({ post }) => {
   return (
-    <article className="mx-auto prose prose-lg">
+    <article className="mx-auto w-full prose prose-lg p-2">
       <SlugTitleSection
         mainImage={post.mainImage}
         createdAt={post._createdAt}
@@ -21,7 +21,7 @@ const Post: FC<PostProps> = ({ post }) => {
         author={post.author}
         categories={post.categories}
       />
-      <section className="p-5">
+      <section className="py-5">
         <PortableText value={post.body} components={RichTextComponents} />
       </section>
     </article>

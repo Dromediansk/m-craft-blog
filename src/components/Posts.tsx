@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/utils/functions";
-import Footer from "./Footer";
 
 export default function Posts({ posts = [] }: { posts: Post[] }) {
   const title = posts.length === 1 ? `1 Post` : `${posts.length} Posts`;
