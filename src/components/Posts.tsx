@@ -6,7 +6,7 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
   const title = posts.length === 1 ? `1 Post` : `${posts.length} Posts`;
 
   return (
-    <>
+    <div className="lg:px-12">
       <h1 className="text-2xl p-4 font-bold">{title}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 gap-y-16 min-h-[80vh]">
         {posts.map((post) => (
@@ -40,6 +40,6 @@ export default function Posts({ posts = [] }: { posts: Post[] }) {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 }
