@@ -1,4 +1,5 @@
 import BlockCode from "@/components/studio/BlockCode";
+import Blockquote from "@/components/studio/Blockquote";
 import Divider from "@/components/studio/Divider";
 import InlineCode from "@/components/studio/InlineCode";
 import { defineType, defineArrayMember } from "sanity";
@@ -32,7 +33,7 @@ export default defineType({
         { title: "H2", value: "h2" },
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
-        { title: "Quote", value: "blockquote" },
+        { title: "Quote", value: "blockquote", component: Blockquote },
         { title: "Block Code", value: "blockCode", component: BlockCode },
       ],
       lists: [{ title: "Bullet", value: "bullet" }],

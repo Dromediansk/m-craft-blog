@@ -80,11 +80,13 @@ const RichTextComponents: PortableTextComponents = {
     ),
   },
   block: {
-    blockquote: ({ children }) => (
-      <blockquote className="border-l-main border-l-4 italic tracking-wide text-gray-600 py-2 mx-10 my-14">
-        {children}
-      </blockquote>
-    ),
+    blockquote: ({ children }) => {
+      return (
+        <blockquote className="border-l-main border-l-4 italic tracking-wide text-gray-600 py-2 my-14">
+          {children}
+        </blockquote>
+      );
+    },
     blockCode: ({ children }) => (
       <span className="prose-code:before:content-none prose-code:after:content-none">
         <code className="bg-gray-200 text-gray-600 px-2 leading-10 block">
