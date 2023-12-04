@@ -5,6 +5,8 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
   { schemaType }
 ) => {
+  const host = process.env.NEXT_PUBLIC_HOST || "http://localhost:3000";
+
   switch (schemaType) {
     case `post`:
       return S.document().views([
@@ -12,7 +14,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
         S.view
           .component(Iframe)
           .options({
-            url: `http://localhost:3000/api/preview`,
+            url: `${host}/api/preview`,
           })
           .title("Preview"),
       ]);
