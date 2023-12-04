@@ -82,7 +82,7 @@ const RichTextComponents: PortableTextComponents = {
   block: {
     blockquote: ({ children }) => {
       return (
-        <blockquote className="border-l-main border-l-4 italic tracking-wide text-gray-600 py-2 my-14">
+        <blockquote className="border-l-main border-l-4 italic tracking-wide text-gray-600 py-2 my-10">
           {children}
         </blockquote>
       );
