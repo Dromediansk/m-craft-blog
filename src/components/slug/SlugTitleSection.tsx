@@ -40,7 +40,7 @@ const SlugTitleSection: FC<SlugTitleSectionProps> = ({
         <i>{description}</i>
       </p>
 
-      <div className="p-10 relative min-h-[40vh]">
+      <div className="p-10 relative min-h-[45vh]">
         <Image
           className="object-cover object-center mx-auto"
           src={urlFor(mainImage).url()}
