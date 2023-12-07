@@ -66,7 +66,7 @@ const RichTextComponents: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="py-2 list-disc my-0">{children}</ul>
+      <ul className="py-0 list-disc my-0">{children}</ul>
     ),
     number: ({ children }) => (
       <ol className="mt-lg list-decimal">{children}</ol>
