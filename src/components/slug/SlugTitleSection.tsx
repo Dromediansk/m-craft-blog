@@ -22,19 +22,13 @@ const SlugTitleSection: FC<SlugTitleSectionProps> = ({
 }) => {
   return (
     <section className="text-gray-600 drop-shadow-sm">
-      <div className="flex flex-col md:flex-row justify-between gap-y-5">
-        <div>
-          <h1 className="text-4xl font-extrabold text-main">{title}</h1>
-          <span className="text-md italic">
-            {new Date(publishedAt).toLocaleDateString("en-US", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}
-          </span>
-        </div>
-      </div>
-      <AuthorAndTagsContainer author={author} categories={categories} />
+      <h1 className="text-4xl font-extrabold text-main">{title}</h1>
+
+      <AuthorAndTagsContainer
+        author={author}
+        categories={categories}
+        publishedAt={publishedAt}
+      />
 
       <p className="py-2 my-0">
         <i>{description}</i>
