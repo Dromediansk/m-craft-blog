@@ -39,8 +39,24 @@ const Footer = () => {
         <hr className="my-6 border-gray-700" />
         <div className="flex flex-wrap items-center md:justify-between justify-center">
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
-            <div className="text-sm text-gray-400 font-semibold py-1">
-              © {new Date().getFullYear()} Miroslav Pillar. All rights reserved.
+            <div className="text-sm text-gray-400 font-semibold py-1 flex gap-x-2">
+              <span>© {new Date().getFullYear()} Miroslav Pillar.</span>
+              <Link
+                className="underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/files/privacy-policy.pdf"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                className="underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/files/consent.pdf"
+              >
+                Consent
+              </Link>
             </div>
           </div>
         </div>
