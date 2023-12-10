@@ -64,13 +64,17 @@ const CookieBanner = () => {
                          bg-gray-700 rounded-lg shadow`}
     >
       <div className="text-center">
-        <Link
-          rel="noopener noreferrer"
-          target="_blank"
-          href="/files/consent.pdf"
-        >
-          <p className="text-white">Cookies are used on this site.</p>
-        </Link>
+        <p className="text-white">
+          <Link
+            rel="noopener noreferrer"
+            target="_blank"
+            href="/files/consent.pdf"
+            className="underline cursor-pointer"
+          >
+            Cookies
+          </Link>{" "}
+          are used on this site.
+        </p>
       </div>
 
       <div className="flex gap-2">
