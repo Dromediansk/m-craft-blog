@@ -24,10 +24,9 @@ export async function sanityFetch<QueryResponse>({
       "The `SANITY_API_READ_TOKEN` environment variable is required."
     );
   }
-  const isDevelopment = process.env.NODE_ENV === "development";
 
   return client.fetch<QueryResponse>(query, params, {
-    cache: "force-cache",
+    cache: process.env.NODE_ENV === "development" ? "no-cache" : "force-cache",
     next: { tags },
   });
 }
