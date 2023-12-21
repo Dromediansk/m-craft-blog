@@ -34,7 +34,6 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
   const post = await sanityFetch<Post>({
     query: postQuery,
     params,
-    tags: ["post"],
   });
   const isDraftMode = draftMode().isEnabled;
 

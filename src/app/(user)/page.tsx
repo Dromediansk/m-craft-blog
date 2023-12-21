@@ -8,7 +8,6 @@ import { postsQuery } from "../../../sanity/lib/queries";
 export default async function Home() {
   const posts = await sanityFetch<Post[]>({
     query: postsQuery,
-    tags: ["post"],
   });
   const isDraftMode = draftMode().isEnabled;
 

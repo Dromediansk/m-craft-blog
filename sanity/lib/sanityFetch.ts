@@ -25,8 +25,17 @@ export async function sanityFetch<QueryResponse>({
     );
   }
 
+  const isDevelopment = process.env.NODE_ENV === "development";
+
   return client.fetch<QueryResponse>(query, params, {
-    cache: "no-cache",
-    next: { tags },
+    cache: isDevelopment || isDraftMode ? undefined : "force-cache",
+    ...(isDraftMode && {
+      token,
+      perspective: "previewDrafts",
+    }),
+    next: {
+      ...(isDraftMode && { revalidate: 30 }),
+      tags,
+    },
   });
 }
