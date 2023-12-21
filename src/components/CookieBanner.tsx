@@ -24,8 +24,6 @@ const CookieBanner = () => {
         analytics_storage: newValue,
       },
     });
-    if (cookieConsent) {
-    }
   }, [cookieConsent]);
 
   const handleDenyConsent = () => {
@@ -72,8 +70,8 @@ const CookieBanner = () => {
             className="underline cursor-pointer"
           >
             Cookies
-          </Link>{" "}
-          are used on this site.
+          </Link>
+          &nbsp; are used on this site.
         </p>
       </div>
 

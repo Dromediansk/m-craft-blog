@@ -97,6 +97,9 @@ const RichTextComponents: PortableTextComponents = {
   },
   marks: {
     link: ({ children, value }) => {
+      if (!value.href) {
+        return;
+      }
       const rel = !value.href.startsWith("/")
         ? "noreferrer noopener"
         : undefined;
