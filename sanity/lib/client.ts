@@ -1,6 +1,6 @@
 import { ClientConfig, createClient } from "next-sanity";
 
-import { apiVersion, dataset, projectId, useCdn, token } from "../env";
+import { apiVersion, dataset, projectId, useCdn } from "../env";
 
 const config: ClientConfig = {
   projectId,
@@ -8,7 +8,6 @@ const config: ClientConfig = {
   apiVersion,
   // set CDN to live API in development mode
   useCdn,
-  token,
 };
 
 export const client = createClient(config);
