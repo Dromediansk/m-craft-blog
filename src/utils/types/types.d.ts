@@ -6,7 +6,7 @@ type Base = {
   _updatedAt: string;
 };
 
-interface Post extends Base {
+type Post = Base & {
   author: Author;
   body: Block[];
   categories: Category[];
@@ -15,56 +15,62 @@ interface Post extends Base {
   title: string;
   description: string;
   publishedAt: string;
-}
+};
 
-interface Author extends Base {
+type PostPath = {
+  params: {
+    slug: string;
+  };
+};
+
+type Author = Base & {
   bio: Block[];
   image: Image;
   name: string;
   slug: Slug;
-}
+};
 
-interface Image {
+type Image = {
   _type: "image";
   asset: Reference;
-}
+};
 
-interface Reference {
+type Reference = {
   _ref: string;
   _type: "reference";
-}
+};
 
-interface Slug {
+type Slug = {
   _type: "slug";
   current: string;
-}
+};
 
-interface Block {
+type Block = {
   _key: string;
   _type: "block";
   children: Span[];
   markDefs: any[];
   style: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
-}
+};
 
-interface Span {
+type Span = {
   _key: string;
   _type: "span";
   marks: string[];
   text: string;
-}
+};
 
-interface Category extends Base {
+type Category = Base & {
   description: string;
   title: string;
-}
+};
 
-interface MainImage {
+type MainImage = {
   _type: "image";
   asset: Reference;
-}
+};
 
-interface Title {
+type Title = {
   _type: string;
   current: string;
-}
+};

@@ -7,7 +7,7 @@ type PostsProps = {
   posts: Post[];
 };
 
-const Posts: FC<PostsProps> = ({ posts = [] }) => {
+const Posts: FC<PostsProps> = ({ posts }) => {
   const title = posts.length === 1 ? `1 Post` : `${posts.length} Posts`;
 
   return (

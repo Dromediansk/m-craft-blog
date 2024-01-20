@@ -4,7 +4,6 @@ import { PortableText } from "@portabletext/react";
 import RichTextComponents from "./slug/RichTextComponents";
 import SlugTitleSection from "./slug/SlugTitleSection";
 import { FC } from "react";
-import Footer from "./Footer";
 
 type PostProps = {
   post: Post;

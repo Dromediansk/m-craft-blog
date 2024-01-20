@@ -9,17 +9,12 @@ import { client } from "../../../../sanity/lib/client";
 import { postPathsQuery, postQuery } from "../../../../sanity/lib/queries";
 import { sanityFetch, token } from "../../../../sanity/lib/sanityFetch";
 
-type PostPageProps = {
-  params: {
-    slug: string;
-  };
-};
+type PostPageProps = PostPath;
 
 // Prepare Next.js to know which routes already exist
 export async function generateStaticParams() {
   // Important, use the plain Sanity Client here
-  const postPaths = await client.fetch(postPathsQuery);
-
+  const postPaths = await client.fetch<PostPath[]>(postPathsQuery);
   return postPaths;
 }
 
