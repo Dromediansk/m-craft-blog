@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "M-Craft Blog Studio",
@@ -6,10 +7,6 @@ export const metadata: Metadata = {
     "Software development | Mobile development | Latest trends in tech",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return <main>{children}</main>;
 }

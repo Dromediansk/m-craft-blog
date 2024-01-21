@@ -29,7 +29,6 @@ const Posts: FC<PostsProps> = ({ posts }) => {
                 placeholder="blur"
                 blurDataURL={urlFor(post.mainImage).url()}
                 sizes="100%"
-                priority
               />
               <div className="absolute bottom-0 w-full bg-opacity-40 bg-black backdrop-blur-lg drop-shadow-lg text-white p-5 flex justify-between">
                 <div>

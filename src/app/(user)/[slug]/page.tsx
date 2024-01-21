@@ -1,46 +1,46 @@
-import Post from "@/components/Post";
+import { QueryParams } from "next-sanity";
 import { draftMode } from "next/headers";
-import PreviewProvider from "@/components/PreviewProvider";
-import PreviewPost from "@/components/PreviewPost";
+
+import Post from "@/components/Post";
+import PostPreview from "@/components/PostPreview";
+import { postQuery, postsQuery } from "../../../../sanity/lib/queries";
+import { client } from "../../../../sanity/lib/client";
+import { loadQuery } from "../../../../sanity/lib/store";
 import { FC } from "react";
 import { Metadata } from "next";
 import { createMetadataFromPost } from "@/utils/functions";
-import { client } from "../../../../sanity/lib/client";
-import { postPathsQuery, postQuery } from "../../../../sanity/lib/queries";
-import { sanityFetch, token } from "../../../../sanity/lib/sanityFetch";
 
-type PostPageProps = PostPath;
+type PageProps = {
+  params: QueryParams;
+};
 
-// Prepare Next.js to know which routes already exist
-export async function generateStaticParams() {
-  // Important, use the plain Sanity Client here
-  const postPaths = await client.fetch<PostPath[]>(postPathsQuery);
-  return postPaths;
-}
+export const generateStaticParams = async () => {
+  const posts: Post[] = await client.fetch<Post[]>(postsQuery);
+
+  return posts.map((post) => ({
+    slug: post.slug.current,
+  }));
+};
 
 export const generateMetadata = async ({
   params,
-}: PostPageProps): Promise<Metadata> => {
-  const post = await sanityFetch<Post>({ query: postQuery, params });
+}: PageProps): Promise<Metadata> => {
+  const post = await client.fetch<Post>(postQuery, params);
   return createMetadataFromPost(post);
 };
 
-const PostPage: FC<PostPageProps> = async ({ params }) => {
-  const post = await sanityFetch<Post>({
-    query: postQuery,
-    params,
+const Page: FC<PageProps> = async ({ params }) => {
+  const draftModeEnabled = draftMode().isEnabled;
+
+  const initial = await loadQuery<Post>(postQuery, params, {
+    perspective: draftModeEnabled ? "previewDrafts" : "published",
   });
-  const isDraftMode = draftMode().isEnabled;
 
-  if (isDraftMode && token) {
-    return (
-      <PreviewProvider token={token}>
-        <PreviewPost post={post} />
-      </PreviewProvider>
-    );
-  }
-
-  return <Post post={post} />;
+  return draftModeEnabled ? (
+    <PostPreview initial={initial} params={params} />
+  ) : (
+    <Post post={initial.data} />
+  );
 };
 
-export default PostPage;
+export default Page;

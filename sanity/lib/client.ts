@@ -1,13 +1,17 @@
-import { ClientConfig, createClient } from "next-sanity";
+import { createClient } from "@sanity/client/stega";
 
 import { apiVersion, dataset, projectId, useCdn } from "../env";
 
-const config: ClientConfig = {
-  projectId,
-  dataset,
+export const client = createClient({
   apiVersion,
-  // set CDN to live API in development mode
+  dataset,
+  projectId,
   useCdn,
-};
-
-export const client = createClient(config);
+  // These settings will be overridden in
+  // ./sanity/lib/store.ts when draftMode is enabled
+  perspective: "published",
+  stega: {
+    enabled: false,
+    studioUrl: "/studio",
+  },
+});

@@ -2,18 +2,16 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...index]]\page.tsx` route
  */
 
-import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
 
-// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import { apiVersion, dataset, projectId } from "./sanity/env";
+import { dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
-import { defaultDocumentNode } from "./sanity/desk/defaultDocumentNode";
 import { codeInput } from "@sanity/code-input";
 import StudioNavbar from "@/components/studio/StudioNavbar";
 import theme from "@/utils/theme";
 import { vercelDeployTool } from "sanity-plugin-vercel-deploy";
+import { presentationTool } from "sanity/presentation";
+import { structureTool } from "sanity/structure";
 
 export default defineConfig({
   basePath: "/studio",
@@ -28,10 +26,19 @@ export default defineConfig({
   },
   theme,
   plugins: [
-    deskTool({ defaultDocumentNode }),
-    // Vision is a tool that lets you query your content with GROQ in the studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({ defaultApiVersion: apiVersion }),
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title("Collections")
+          .items([...S.documentTypeListItems()]),
+    }),
+    presentationTool({
+      previewUrl: {
+        draftMode: {
+          enable: "/api/draft",
+        },
+      },
+    }),
     codeInput(),
     vercelDeployTool(),
   ],
