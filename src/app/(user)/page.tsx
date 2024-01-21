@@ -13,8 +13,6 @@ const Page = async () => {
     { perspective: isDraftModeEnabled ? "previewDrafts" : "published" }
   );
 
-  console.log("initial", initial.data.length);
-
   return isDraftModeEnabled ? (
     <PostsPreview initial={initial} />
   ) : (
