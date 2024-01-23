@@ -4,7 +4,7 @@ A blogging website about software development, mobile development and latest tec
 
 ## Tech stack
 
-- Next.js (currently v13)
+- Next.js (v14)
 - Typescript
 - TailwindCSS
 - Sanity.io (CMS)
