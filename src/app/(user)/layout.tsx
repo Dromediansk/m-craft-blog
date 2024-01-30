@@ -3,6 +3,11 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import { FC, ReactNode } from "react";
+
+type RootLayoutProps = {
+  children: ReactNode;
+};
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +18,7 @@ export const metadata: Metadata = {
   icons: "./M_logo.svg",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -30,4 +31,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
