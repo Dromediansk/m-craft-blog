@@ -13,12 +13,12 @@ const Posts: FC<PostsProps> = ({ posts }) => {
   return (
     <div className="lg:px-12">
       <h1 className="text-2xl p-4 font-bold">{title}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 gap-y-16 min-h-[80vh]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 gap-y-10 min-h-[80vh]">
         {posts.map((post) => (
           <Link
             key={post._id}
             href={post.slug.current}
-            className="cursor-pointer h-[400px]"
+            className="cursor-pointer h-80"
           >
             <div className="relative w-full h-full">
               <Image
