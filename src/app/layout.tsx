@@ -2,6 +2,8 @@ import "./globals.css";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import GoogleAnalytics from "../components/GoogleAnalytics";
+import { draftMode } from "next/headers";
+import LiveVisualEditing from "@/components/LiveVisualEditing";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +25,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <GoogleAnalytics />
           {children}
+          {draftMode().isEnabled && <LiveVisualEditing />}
         </body>
       </html>
     </>

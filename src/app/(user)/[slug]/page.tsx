@@ -1,46 +1,30 @@
-import Post from "@/components/Post";
+import { QueryParams } from "next-sanity";
 import { draftMode } from "next/headers";
-import PreviewProvider from "@/components/PreviewProvider";
-import PreviewPost from "@/components/PreviewPost";
-import { FC } from "react";
-import { Metadata } from "next";
-import { createMetadataFromPost } from "@/utils/functions";
+
+import Post from "@/components/Post";
+import { postQuery, postsQuery } from "../../../../sanity/lib/queries";
 import { client } from "../../../../sanity/lib/client";
-import { postPathsQuery, postQuery } from "../../../../sanity/lib/queries";
-import { sanityFetch, token } from "../../../../sanity/lib/sanityFetch";
+import { loadQuery } from "../../../../sanity/lib/store";
+import PostPreview from "@/components/PostPreview";
 
-type PostPageProps = PostPath;
+export async function generateStaticParams() {
+  const posts = await client.fetch<Post[]>(postsQuery);
 
-// Prepare Next.js to know which routes already exist
-export const generateStaticParams = async () => {
-  // Important, use the plain Sanity Client here
-  const postPaths = await client.fetch<PostPath[]>(postPathsQuery);
-  return postPaths;
-};
+  return posts.map((post) => ({
+    slug: post.slug.current,
+  }));
+}
 
-export const generateMetadata = async ({
-  params,
-}: PostPageProps): Promise<Metadata> => {
-  const post = await sanityFetch<Post>({ query: postQuery, params });
-  return createMetadataFromPost(post);
-};
-
-const PostPage: FC<PostPageProps> = async ({ params }) => {
-  const post = await sanityFetch<Post>({
-    query: postQuery,
-    params,
+export default async function Page({ params }: { params: QueryParams }) {
+  const initial = await loadQuery<Post>(postQuery, params, {
+    // Because of Next.js, RSC and Dynamic Routes this currently
+    // cannot be set on the loadQuery function at the "top level"
+    perspective: draftMode().isEnabled ? "previewDrafts" : "published",
   });
-  const isDraftMode = draftMode().isEnabled;
 
-  if (isDraftMode && token) {
-    return (
-      <PreviewProvider token={token}>
-        <PreviewPost post={post} />
-      </PreviewProvider>
-    );
-  }
-
-  return <Post post={post} />;
-};
-
-export default PostPage;
+  return draftMode().isEnabled ? (
+    <PostPreview initial={initial} params={params} />
+  ) : (
+    <Post post={initial.data} />
+  );
+}

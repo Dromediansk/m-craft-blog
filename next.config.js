@@ -8,7 +8,9 @@ const nextConfig = {
       },
     ],
   },
-  // ...other config settings
+  experimental: {
+    taint: true,
+  },
 };
 
 module.exports = nextConfig;

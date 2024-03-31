@@ -1,25 +1,21 @@
 import Posts from "@/components/Posts";
-import { draftMode } from "next/headers";
-import PreviewProvider from "@/components/PreviewProvider";
-import PreviewPosts from "@/components/PreviewPosts";
-import { sanityFetch, token } from "../../../sanity/lib/sanityFetch";
+import { loadQuery } from "../../../sanity/lib/store";
 import { postsQuery } from "../../../sanity/lib/queries";
+import { draftMode } from "next/headers";
+import PostsPreview from "@/components/PostsPreview";
 
-const Home = async () => {
-  const posts = await sanityFetch<Post[]>({
-    query: postsQuery,
-  });
-  const isDraftMode = draftMode().isEnabled;
+export default async function Page() {
+  const initial = await loadQuery<Post[]>(
+    postsQuery,
+    {},
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
 
-  if (isDraftMode && token) {
-    return (
-      <PreviewProvider token={token}>
-        <PreviewPosts posts={posts} />
-      </PreviewProvider>
-    );
-  }
-
-  return <Posts posts={posts} />;
-};
-
-export default Home;
+  return draftMode().isEnabled ? (
+    <PostsPreview initial={initial} />
+  ) : (
+    <Posts posts={initial.data} />
+  );
+}
