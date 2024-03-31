@@ -3,7 +3,6 @@
  */
 
 import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
 
 import { dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
@@ -12,6 +11,7 @@ import { codeInput } from "@sanity/code-input";
 import StudioNavbar from "@/components/studio/StudioNavbar";
 import theme from "@/utils/theme";
 import { vercelDeployTool } from "sanity-plugin-vercel-deploy";
+import { structureTool } from "sanity/structure";
 
 export default defineConfig({
   basePath: "/studio",
@@ -24,5 +24,9 @@ export default defineConfig({
     },
   },
   theme,
-  plugins: [deskTool({ defaultDocumentNode }), codeInput(), vercelDeployTool()],
+  plugins: [
+    structureTool({ defaultDocumentNode }),
+    codeInput(),
+    vercelDeployTool(),
+  ],
 });
