@@ -13,13 +13,20 @@ const Posts: FC<PostsProps> = ({ posts }) => {
   return (
     <div className="lg:px-12">
       <h1 className="text-2xl p-4 font-bold">{title}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 gap-y-10 min-h-[80vh]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-h-[80vh]">
         {posts.map((post) => (
           <Link
             key={post._id}
             href={post.slug.current}
-            className="cursor-pointer h-80"
+            className="cursor-pointer h-80 my-5 mx-2 sm:mx-4"
           >
+            <div className="text-right text-sm text-gray-400">
+              {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </div>
             <div className="relative w-full h-full">
               <Image
                 className="object-cover object-center"
@@ -31,17 +38,8 @@ const Posts: FC<PostsProps> = ({ posts }) => {
                 sizes="100%"
                 priority
               />
-              <div className="absolute bottom-0 w-full bg-opacity-40 bg-black backdrop-blur-lg drop-shadow-lg text-white p-5 flex justify-between">
-                <div>
-                  <h3 className="font-bold text-lg">{post.title}</h3>
-                  <span>
-                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </span>
-                </div>
+              <div className="absolute bottom-0 w-full bg-opacity-40 bg-black backdrop-blur-lg drop-shadow-lg text-white px-4 py-2 flex justify-between h-[100px]">
+                <h3 className="font-bold text-lg my-auto">{post.title}</h3>
               </div>
             </div>
           </Link>
