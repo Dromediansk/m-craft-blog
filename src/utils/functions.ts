@@ -10,6 +10,9 @@ export const urlFor = (source: SanityImageSource) => {
 };
 
 export const createMetadataFromPost = (post: Post): Metadata => {
+  if (!post) {
+    return {};
+  }
   return {
     metadataBase: new URL("https://blog.miroslavpillar.eu"),
     icons: "./M_logo.svg",

@@ -5,7 +5,7 @@ import { NavbarProps } from "sanity";
 
 const StudioNavbar: FC<NavbarProps> = (props) => (
   <div>
-    <div className="flex items-center justify-between p-5">
+    <div className="flex items-center justify-between p-5 bg-black">
       <Link href="/" className="text-main flex items-center">
         <HiArrowUturnLeft className="h-6 w-6 text-main mr-2" />
         Go To Website
