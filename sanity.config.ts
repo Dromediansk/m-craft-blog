@@ -28,7 +28,7 @@ export default defineConfig({
     presentationTool({
       locate,
       previewUrl: {
-        draftMode: {
+        previewMode: {
           enable: "/api/draft",
         },
       },
