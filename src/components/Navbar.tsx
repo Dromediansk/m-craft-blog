@@ -33,7 +33,7 @@ const Navbar = () => {
     <nav
       className={`${
         isVisible ? "visible" : "invisible translate-y-[-100%]"
-      } ease-in-out duration-300 flex items-center justify-between font-bold p-2 md:px-10 top-0 sticky z-50 bg-white drop-shadow-sm`}
+      } ease-in-out duration-300 flex items-center justify-between font-bold p-2 md:px-10 top-0 sticky z-50 bg-white drop-shadow-sm h-16`}
     >
       <div className="flex items-center space-x-2">
         <Link href="/">
