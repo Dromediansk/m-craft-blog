@@ -2,28 +2,32 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 // import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [scrollYPosition, setScrollYPosition] = useState(0);
 
+  const handleScroll = useCallback(() => {
+    const currentScrollYPos = window.scrollY;
+    const isScrollingUp = currentScrollYPos < scrollYPosition;
+
+    setIsVisible(isScrollingUp || currentScrollYPos === 0);
+    setScrollYPosition(currentScrollYPos);
+  }, [scrollYPosition]);
+
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollYPos = window.scrollY;
-      const isScrollingUp = currentScrollYPos < scrollYPosition;
-
-      setIsVisible(isScrollingUp || currentScrollYPos === 0);
-      setScrollYPosition(currentScrollYPos);
-    };
-
+    // only take effect on desktop sreens or larger
+    if (window.innerWidth < 768) {
+      return;
+    }
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [scrollYPosition]);
+  }, [handleScroll]);
 
   return (
     <nav
