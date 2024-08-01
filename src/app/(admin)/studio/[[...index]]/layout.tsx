@@ -6,7 +6,7 @@ type RootLayoutProps = {
 };
 
 export const metadata: Metadata = {
-  title: "M-Craft Blog Studio",
+  title: "Bitloom Blog Studio",
   description:
     "Software development | Mobile development | Latest trends in tech",
 };

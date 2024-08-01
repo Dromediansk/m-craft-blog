@@ -8,7 +8,7 @@ import LiveVisualEditing from "@/components/LiveVisualEditing";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "M-Craft Blog",
+  title: "Bitloom Blog",
   description:
     "Software development | Mobile development | Latest trends in tech",
   icons: "./Bitloom_pure.svg",
