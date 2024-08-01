@@ -14,7 +14,7 @@ export const createMetadataFromPost = (post: Post): Metadata => {
     return {};
   }
   return {
-    metadataBase: new URL("https://blog.miroslavpillar.eu"),
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL_BLOG_DOMAIN}`),
     icons: "./M_logo.svg",
     title: post.title,
     description: post.description,
@@ -24,7 +24,7 @@ export const createMetadataFromPost = (post: Post): Metadata => {
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://blog.miroslavpillar.eu/${post.slug.current}`,
+      url: `${process.env.NEXT_PUBLIC_URL_BLOG_DOMAIN}/${post.slug.current}`,
       siteName: "MP Dev Blog",
       images: urlFor(post.mainImage).url(),
       type: "article",
