@@ -37,7 +37,13 @@ const Navbar = () => {
     >
       <div className="flex items-center space-x-2">
         <Link href="/">
-          <Image width={75} height={75} src="/M_logo.svg" alt="logo" priority />
+          <Image
+            width={75}
+            height={75}
+            src="/Bitloom_pure.svg"
+            alt="logo"
+            priority
+          />
         </Link>
       </div>
 

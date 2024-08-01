@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "M-Craft Blog",
   description:
     "Software development | Mobile development | Latest trends in tech",
-  icons: "./M_logo.svg",
+  icons: "./Bitloom_pure.svg",
 };
 
 export default function RootLayout({
