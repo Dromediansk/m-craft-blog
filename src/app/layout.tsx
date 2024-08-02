@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Bitloom Blog",
   description:
     "Software development | Mobile development | Latest trends in tech",
-  icons: "./Bitloom_pure.svg",
+  icons: "./logo_pure.svg",
 };
 
 export default function RootLayout({

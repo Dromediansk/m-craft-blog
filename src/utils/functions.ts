@@ -15,7 +15,7 @@ export const createMetadataFromPost = (post: Post): Metadata => {
   }
   return {
     metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL_BLOG_DOMAIN}`),
-    icons: "./Bitloom_pure.svg",
+    icons: "./logo_pure.svg",
     title: post.title,
     description: post.description,
     authors: {

@@ -40,7 +40,7 @@ const Navbar = () => {
           <Image
             width={75}
             height={75}
-            src="/Bitloom_pure.svg"
+            src="/logo_pure.svg"
             alt="logo"
             priority
           />
