@@ -26,7 +26,9 @@ export default defineConfig({
     structureTool({ defaultDocumentNode }),
     codeInput(),
     presentationTool({
-      locate,
+      resolve: {
+        locations: locate,
+      },
       previewUrl: {
         previewMode: {
           enable: "/api/draft",
