@@ -3,7 +3,7 @@
 import { useLiveMode } from "@sanity/react-loader";
 import { VisualEditing } from "next-sanity";
 import { useEffect } from "react";
-import { client } from "../../sanity/lib/client";
+import { client } from "../../sanity/config/client";
 
 // Always enable stega in Live Mode
 const stegaClient = client.withConfig({ stega: true });

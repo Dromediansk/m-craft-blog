@@ -3,7 +3,7 @@ import { draftMode } from "next/headers";
 
 import Post from "@/components/Post";
 import { postQuery, postsQuery } from "../../../../sanity/lib/queries";
-import { client } from "../../../../sanity/lib/client";
+import { client } from "../../../../sanity/config/client";
 import { loadQuery } from "../../../../sanity/lib/store";
 import PostPreview from "@/components/PostPreview";
 
